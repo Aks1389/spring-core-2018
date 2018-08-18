@@ -1,4 +1,4 @@
-package com.epam.spring.training;
+package com.epam.training.springcore;
 
 public class Client {
 
