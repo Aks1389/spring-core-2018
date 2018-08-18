@@ -9,19 +9,22 @@ public class App {
 
 	Client client;
 	EventLogger eventLogger;
+	Event event;
 	
 	public App() {
 		
 	}
 	
-	public App(Client client, EventLogger eventLogger) {
+	public App(Client client, EventLogger eventLogger, Event event) {
 		this.client = client;
 		this.eventLogger = eventLogger;
+		this.event = event;
 	}
 	
 	public void logEvent(String msg) {
 		String message = msg.replaceAll(client.getId(), client.getFullName());
-		eventLogger.logEvent(message);
+		event.setMsg(message);
+		eventLogger.logEvent(event);
 	}
 	
 	public static void main(String[] args) {

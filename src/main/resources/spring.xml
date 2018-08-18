@@ -11,11 +11,25 @@
  	</bean>
  	
  	<bean id="eventLogger" class = "com.epam.training.springcore.ConsoleEventLogger" />
+ 	 
+ 	<bean id="event" class = "com.epam.training.springcore.Event" scope="prototype">
+ 		<constructor-arg>
+ 			<bean class = "java.util.Date" />
+ 		</constructor-arg>
+ 		<constructor-arg>
+ 			<bean id="dateFormat" class = "java.text.DateFormat" factory-method="getDateTimeInstance" />
+ 		</constructor-arg>
+ 		
+ 	</bean>
  	
  	<bean id="app" class = "com.epam.training.springcore.App" >
  		<constructor-arg ref="client"/>
  		<constructor-arg ref="eventLogger"/>
+ 		<constructor-arg ref="event"/>
  	</bean>
+ 	
+ 	
+  
 	
 	
 </beans>
